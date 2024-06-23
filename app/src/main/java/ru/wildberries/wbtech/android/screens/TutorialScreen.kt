@@ -10,11 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.R
-import ru.wildberries.wbtech.android.ui.elements.AvatarMeetingImage
-import ru.wildberries.wbtech.android.ui.elements.AvatarRegularIcon
-import ru.wildberries.wbtech.android.ui.elements.InfoChip
-import ru.wildberries.wbtech.android.ui.elements.SearchBar
-import ru.wildberries.wbtech.android.ui.elements.TypographyTutorial
+import ru.wildberries.wbtech.android.ui.base.AvatarSmallRoundedIcon
+import ru.wildberries.wbtech.android.ui.base.AvatarRegularIcon
+import ru.wildberries.wbtech.android.ui.base.InfoChip
+import ru.wildberries.wbtech.android.ui.base.SearchBar
+import ru.wildberries.wbtech.android.ui.base.TypographyTutorial
 import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 
 @Composable
@@ -32,7 +32,7 @@ fun TutorialScreen(modifier: Modifier = Modifier) {
             AvatarRegularIcon(image = R.drawable.ic_avatar)
         }
         item {
-            AvatarMeetingImage(image = R.drawable.ic_avatar_meeting)
+            AvatarSmallRoundedIcon(image = R.drawable.ic_avatar_meeting)
         }
         item {
             SearchBar()

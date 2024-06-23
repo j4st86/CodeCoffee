@@ -1,4 +1,4 @@
-package ru.wildberries.wbtech.android.ui.elements
+package ru.wildberries.wbtech.android.ui.base
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,13 +17,16 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.ui.theme.BodyText1
-import ru.wildberries.wbtech.android.ui.theme.SearchBarContainerColor
-import ru.wildberries.wbtech.android.ui.theme.SearchBarContentColor
+import ru.wildberries.wbtech.android.ui.theme.NeutralDisabledColor
+import ru.wildberries.wbtech.android.ui.theme.NeutralSecondaryBGColor
 
 @Composable
-fun SearchBar(modifier: Modifier = Modifier) {
+fun SearchBar(
+    modifier: Modifier = Modifier
+) {
     var text by rememberSaveable {
         mutableStateOf("")
     }
@@ -40,7 +43,7 @@ fun SearchBar(modifier: Modifier = Modifier) {
             placeholder = {
                 Text(
                     text = "Поиск",
-                    color = SearchBarContentColor,
+                    color = NeutralDisabledColor,
                     fontSize = MaterialTheme.typography.BodyText1.fontSize,
                     fontFamily = MaterialTheme.typography.BodyText1.fontFamily
                 )
@@ -49,15 +52,20 @@ fun SearchBar(modifier: Modifier = Modifier) {
                 Icon(
                     imageVector = Icons.Outlined.Search,
                     contentDescription = "Search Icon",
-                    tint = SearchBarContentColor
+                    tint = NeutralDisabledColor
                 )
             },
             colors = TextFieldDefaults.colors(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent,
-                focusedContainerColor = SearchBarContainerColor,
-                unfocusedContainerColor = SearchBarContainerColor
+                focusedContainerColor = NeutralSecondaryBGColor,
+                unfocusedContainerColor = NeutralSecondaryBGColor
+            ),
+            singleLine = true,
+            textStyle = TextStyle(
+                fontFamily = MaterialTheme.typography.BodyText1.fontFamily,
+                fontSize = MaterialTheme.typography.BodyText1.fontSize
             )
         )
     }

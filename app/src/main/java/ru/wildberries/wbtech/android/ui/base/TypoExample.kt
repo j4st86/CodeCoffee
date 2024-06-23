@@ -1,4 +1,4 @@
-package ru.wildberries.wbtech.android.ui.elements
+package ru.wildberries.wbtech.android.ui.base
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
