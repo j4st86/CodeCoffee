@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import ru.wildberries.wbtech.android.screens.TutorialScreen
+import ru.wildberries.wbtech.android.ui.elements.OverlappingVisitorsRow
 import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CodeCoffeeTheme {
-                TutorialScreen()
+
             }
         }
     }

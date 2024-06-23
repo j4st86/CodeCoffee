@@ -1,4 +1,4 @@
-package ru.wildberries.wbtech.android.ui.moleculas
+package ru.wildberries.wbtech.android.ui.elements
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,17 +11,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ru.wildberries.wbtech.android.R
-import ru.wildberries.wbtech.android.ui.elements.AvatarMeetingImage
+import ru.wildberries.wbtech.android.ui.base.AvatarSmallRoundedIcon
 import ru.wildberries.wbtech.android.ui.theme.BodyText1
-import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.Metadata1
-import ru.wildberries.wbtech.android.ui.theme.TypoSubTitleColor
+import ru.wildberries.wbtech.android.ui.theme.NeutralActiveColor
+import ru.wildberries.wbtech.android.ui.theme.NeutralWeakColor
 
 @Composable
-fun CommunityView(
+fun CommunityCard(
     communityName: String,
     communityCount: Int,
     communityImage: Int
@@ -32,25 +30,20 @@ fun CommunityView(
             .padding(bottom = 12.dp)
     ) {
         Row {
-            AvatarMeetingImage(image = communityImage, Modifier.padding(4.dp))
+            AvatarSmallRoundedIcon(image = communityImage, Modifier.padding(4.dp))
             Spacer(modifier = Modifier.size(12.dp))
             Column {
                 Text(
                     text = communityName,
-                    fontFamily = MaterialTheme.typography.BodyText1.fontFamily
+                    fontFamily = MaterialTheme.typography.BodyText1.fontFamily,
+                    fontSize = MaterialTheme.typography.BodyText1.fontSize,
+                    color = NeutralActiveColor
                 )
                 Text(text = "$communityCount человек",
                     fontFamily = MaterialTheme.typography.Metadata1.fontFamily,
-                    color = TypoSubTitleColor)
+                    fontSize = MaterialTheme.typography.Metadata1.fontSize,
+                    color = NeutralWeakColor)
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CodeCoffeeTheme {
-        CommunityView("Designa", 10000, R.drawable.ic_avatar_meeting)
     }
 }
