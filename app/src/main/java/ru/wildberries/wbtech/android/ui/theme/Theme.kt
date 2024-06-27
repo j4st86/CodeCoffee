@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
@@ -44,4 +45,38 @@ fun CodeCoffeeTheme(
         typography = Typography,
         content = content
     )
+}
+
+@Suppress("IMPLICIT_CAST_TO_ANY")
+@Composable
+fun CodeAndCoffeeTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
+    content: @Composable () -> Unit
+) {
+    val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+
+        darkTheme -> CodeCoffeeDarkColorScheme
+        else -> CodeCoffeeLightColorScheme
+    }
+    CompositionLocalProvider(
+        LocalColorScheme provides colorScheme as AppColorScheme,
+        LocalTypography provides CodeAndCoffeeTypography,
+        //LocalSizeSystem provides CodeAndCoffeeDimensions
+    ) {
+        MaterialTheme(
+            content = content
+        )
+    }
+}
+
+object CodeAndCoffeeTheme {
+    val colors: AppColorScheme
+        @Composable get() = LocalColorScheme.current
+    val typography: AppTypography
+        @Composable get() = LocalTypography.current
 }

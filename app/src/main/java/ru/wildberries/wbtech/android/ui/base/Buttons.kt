@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.ui.theme.BrandDefaultColor
+import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.NeutralSecondaryBGColor
 import ru.wildberries.wbtech.android.ui.theme.NeutralWhiteColor
@@ -66,7 +67,7 @@ fun SecondaryButton(
             text = text,
             fontFamily = MaterialTheme.typography.Subheading2.fontFamily,
             fontSize = MaterialTheme.typography.Subheading2.fontSize,
-            modifier = modifier.padding(vertical = 12.dp, horizontal = 30.dp)
+            modifier = modifier.padding(vertical = 12.dp, horizontal = 30.dp) //TODO delete after review
         )
     }
 }
@@ -99,6 +100,6 @@ fun GhostButton(
 @Composable
 fun yyyyy() {
     CodeCoffeeTheme {
-        GhostButton("Button", true)
+        SecondaryButton("Button", true)
     }
 }
