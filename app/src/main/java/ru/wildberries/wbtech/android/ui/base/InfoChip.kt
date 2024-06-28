@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.ui.theme.BrandBGColor
 import ru.wildberries.wbtech.android.ui.theme.BrandDarkColor
+import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.Metadata3
 
 @Composable
@@ -23,16 +24,15 @@ fun InfoChip(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .background(
-                color = BrandBGColor,
+                color = CodeAndCoffeeTheme.colors.brandBGColor,
                 shape = RoundedCornerShape(40.dp)
             )
             .padding(horizontal = 8.dp)
     ) {
         Text(
             text = text,
-            fontFamily = MaterialTheme.typography.Metadata3.fontFamily,
-            fontSize = MaterialTheme.typography.Metadata3.fontSize,
-            color = BrandDarkColor
+            style = CodeAndCoffeeTheme.typography.metadata3,
+            color = CodeAndCoffeeTheme.colors.brandDarkColor
         )
     }
 }

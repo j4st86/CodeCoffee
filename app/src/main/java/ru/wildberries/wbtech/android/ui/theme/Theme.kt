@@ -47,26 +47,14 @@ fun CodeCoffeeTheme(
     )
 }
 
-@Suppress("IMPLICIT_CAST_TO_ANY")
 @Composable
 fun CodeAndCoffeeTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> CodeCoffeeDarkColorScheme
-        else -> CodeCoffeeLightColorScheme
-    }
     CompositionLocalProvider(
-        LocalColorScheme provides colorScheme as AppColorScheme,
+        LocalColorScheme provides CodeCoffeeLightColorScheme,
         LocalTypography provides CodeAndCoffeeTypography,
-        //LocalSizeSystem provides CodeAndCoffeeDimensions
+        LocalSizeSystem provides CodeCoffeeDimensions
     ) {
         MaterialTheme(
             content = content
@@ -79,4 +67,6 @@ object CodeAndCoffeeTheme {
         @Composable get() = LocalColorScheme.current
     val typography: AppTypography
         @Composable get() = LocalTypography.current
+    val dimensions: AppDimensions
+        @Composable get() = LocalSizeSystem.current
 }

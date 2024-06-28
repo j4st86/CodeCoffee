@@ -29,18 +29,17 @@ fun PrimaryButton(
     Button(
         onClick = { /*TODO*/ },
         colors = ButtonColors(
-            containerColor = BrandDefaultColor,
-            contentColor = NeutralWhiteColor,
-            disabledContainerColor = BrandDefaultColor.copy(alpha = 0.5f),
-            disabledContentColor = NeutralSecondaryBGColor
+            containerColor = CodeAndCoffeeTheme.colors.brandDefaultColor,
+            contentColor = CodeAndCoffeeTheme.colors.neutralWhiteColor,
+            disabledContainerColor = CodeAndCoffeeTheme.colors.brandDefaultColor.copy(alpha = 0.5f),
+            disabledContentColor = CodeAndCoffeeTheme.colors.neutralSecondaryBGColor
         ),
         enabled = isEnabled,
         modifier = modifier
     ) {
         Text(
             text = text,
-            fontFamily = MaterialTheme.typography.Subheading2.fontFamily,
-            fontSize = MaterialTheme.typography.Subheading2.fontSize,
+            style = CodeAndCoffeeTheme.typography.subheading2,
             modifier = modifier.padding(vertical = 12.dp, horizontal = 30.dp)
         )
     }
@@ -52,22 +51,26 @@ fun SecondaryButton(
     isEnabled: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val borderColor = if (isEnabled) BrandDefaultColor else BrandDefaultColor.copy(alpha = 0.5f)
+    val borderColor =
+        if (isEnabled) CodeAndCoffeeTheme.colors.brandDefaultColor
+        else CodeAndCoffeeTheme.colors.brandDefaultColor.copy(alpha = 0.5f)
     OutlinedButton(
         onClick = { /*TODO*/ },
         border = BorderStroke(2.dp, borderColor),
         colors = outlinedButtonColors(
-            contentColor = BrandDefaultColor,
-            disabledContentColor = BrandDefaultColor.copy(alpha = 0.5f)
+            contentColor = CodeAndCoffeeTheme.colors.brandDefaultColor,
+            disabledContentColor = CodeAndCoffeeTheme.colors.brandDefaultColor.copy(alpha = 0.5f)
         ),
         enabled = isEnabled,
         modifier = modifier
     ) {
         Text(
             text = text,
-            fontFamily = MaterialTheme.typography.Subheading2.fontFamily,
-            fontSize = MaterialTheme.typography.Subheading2.fontSize,
-            modifier = modifier.padding(vertical = 12.dp, horizontal = 30.dp) //TODO delete after review
+            style = CodeAndCoffeeTheme.typography.subheading2,
+            modifier = modifier.padding(
+                vertical = 12.dp,
+                horizontal = 30.dp
+            ) //TODO delete after review
         )
     }
 }
@@ -81,16 +84,15 @@ fun GhostButton(
     TextButton(
         onClick = { /*TODO*/ },
         colors = outlinedButtonColors(
-            contentColor = BrandDefaultColor,
-            disabledContentColor = BrandDefaultColor.copy(alpha = 0.5f)
+            contentColor = CodeAndCoffeeTheme.colors.brandDefaultColor,
+            disabledContentColor = CodeAndCoffeeTheme.colors.brandDefaultColor.copy(alpha = 0.5f)
         ),
         enabled = isEnabled,
         modifier = modifier
     ) {
         Text(
             text = text,
-            fontFamily = MaterialTheme.typography.Subheading2.fontFamily,
-            fontSize = MaterialTheme.typography.Subheading2.fontSize,
+            style = CodeAndCoffeeTheme.typography.subheading2,
             modifier = modifier.padding(vertical = 12.dp, horizontal = 30.dp)
         )
     }
@@ -99,7 +101,7 @@ fun GhostButton(
 @Preview(showBackground = true)
 @Composable
 fun yyyyy() {
-    CodeCoffeeTheme {
-        SecondaryButton("Button", true)
+    CodeAndCoffeeTheme {
+        GhostButton("Button", true)
     }
 }

@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.ui.theme.BodyText1
+import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.NeutralDisabledColor
 import ru.wildberries.wbtech.android.ui.theme.NeutralSecondaryBGColor
 
@@ -43,30 +44,26 @@ fun SearchBar(
             placeholder = {
                 Text(
                     text = "Поиск",
-                    color = NeutralDisabledColor,
-                    fontSize = MaterialTheme.typography.BodyText1.fontSize,
-                    fontFamily = MaterialTheme.typography.BodyText1.fontFamily
+                    color = CodeAndCoffeeTheme.colors.neutralDisabledColor,
+                    style = CodeAndCoffeeTheme.typography.bodyText1
                 )
             },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Outlined.Search,
                     contentDescription = "Search Icon",
-                    tint = NeutralDisabledColor
+                    tint = CodeAndCoffeeTheme.colors.neutralDisabledColor
                 )
             },
             colors = TextFieldDefaults.colors(
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent,
                 disabledIndicatorColor = Color.Transparent,
-                focusedContainerColor = NeutralSecondaryBGColor,
-                unfocusedContainerColor = NeutralSecondaryBGColor
+                focusedContainerColor = CodeAndCoffeeTheme.colors.neutralSecondaryBGColor,
+                unfocusedContainerColor = CodeAndCoffeeTheme.colors.neutralSecondaryBGColor
             ),
             singleLine = true,
-            textStyle = TextStyle(
-                fontFamily = MaterialTheme.typography.BodyText1.fontFamily,
-                fontSize = MaterialTheme.typography.BodyText1.fontSize
-            )
+            textStyle = CodeAndCoffeeTheme.typography.bodyText1
         )
     }
 }

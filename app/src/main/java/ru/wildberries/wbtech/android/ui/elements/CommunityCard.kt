@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.ui.base.AvatarSmallRoundedIcon
 import ru.wildberries.wbtech.android.ui.theme.BodyText1
+import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.Metadata1
 import ru.wildberries.wbtech.android.ui.theme.NeutralActiveColor
 import ru.wildberries.wbtech.android.ui.theme.NeutralWeakColor
@@ -35,14 +36,12 @@ fun CommunityCard(
             Column {
                 Text(
                     text = communityName,
-                    fontFamily = MaterialTheme.typography.BodyText1.fontFamily,
-                    fontSize = MaterialTheme.typography.BodyText1.fontSize,
-                    color = NeutralActiveColor
+                    style = CodeAndCoffeeTheme.typography.bodyText1,
+                    color = CodeAndCoffeeTheme.colors.neutralActiveColor
                 )
                 Text(text = "$communityCount человек",
-                    fontFamily = MaterialTheme.typography.Metadata1.fontFamily,
-                    fontSize = MaterialTheme.typography.Metadata1.fontSize,
-                    color = NeutralWeakColor)
+                    style = CodeAndCoffeeTheme.typography.metadata1,
+                    color = CodeAndCoffeeTheme.colors.neutralWeakColor)
             }
         }
     }

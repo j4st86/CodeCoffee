@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.R
 import ru.wildberries.wbtech.android.ui.base.AvatarRoundedBorderedIcon
-import ru.wildberries.wbtech.android.ui.theme.BodyText1
+import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 
 @Composable
@@ -38,8 +37,7 @@ fun OverlappingVisitorsRow(
             }
             Text(
                 text = "+" + (accountsList.size - 5),
-                fontFamily = MaterialTheme.typography.BodyText1.fontFamily,
-                fontSize = MaterialTheme.typography.BodyText1.fontSize,
+                style = CodeAndCoffeeTheme.typography.bodyText1,
                 modifier = Modifier.padding(start = 10.dp)
             )
         }

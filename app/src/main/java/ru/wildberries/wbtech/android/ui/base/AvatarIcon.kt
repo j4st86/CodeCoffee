@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.wildberries.wbtech.android.R
+import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.NeutralBorderColor
 import ru.wildberries.wbtech.android.ui.theme.NeutralSecondaryBGColor
@@ -32,7 +33,7 @@ fun AvatarRegularIcon(
         modifier = modifier
             .size(imageSize.dp)
             .clip(CircleShape)
-            .background(NeutralSecondaryBGColor),
+            .background(CodeAndCoffeeTheme.colors.neutralSecondaryBGColor),
     ) {
         Image(
             painter = painterResource(id = image),
@@ -89,7 +90,7 @@ fun AvatarRoundedBorderedIcon(
             .size(48.dp)
             .clip(RoundedCornerShape(16.dp))
             .border(2.dp, NeutralBorderColor, RoundedCornerShape(16.dp))
-            .background(color = NeutralSecondaryBGColor)
+            .background(color = CodeAndCoffeeTheme.colors.neutralSecondaryBGColor)
     )
 }
 
