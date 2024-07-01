@@ -19,7 +19,6 @@ import ru.wildberries.wbtech.android.R
 import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 import ru.wildberries.wbtech.android.ui.theme.NeutralBorderColor
-import ru.wildberries.wbtech.android.ui.theme.NeutralSecondaryBGColor
 
 @Composable
 fun AvatarRegularIcon(

@@ -10,19 +10,17 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ru.wildberries.wbtech.android.R
+import ru.wildberries.wbtech.android.screens.ScreenMyMeetings
 import ru.wildberries.wbtech.android.ui.base.AvatarSmallRoundedIcon
 import ru.wildberries.wbtech.android.ui.base.InfoChip
-import ru.wildberries.wbtech.android.ui.theme.BodyText1
 import ru.wildberries.wbtech.android.ui.theme.CodeAndCoffeeTheme
-import ru.wildberries.wbtech.android.ui.theme.Metadata1
-import ru.wildberries.wbtech.android.ui.theme.Metadata2
-import ru.wildberries.wbtech.android.ui.theme.NeutralActiveColor
-import ru.wildberries.wbtech.android.ui.theme.NeutralWeakColor
+import ru.wildberries.wbtech.android.ui.theme.CodeCoffeeTheme
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -31,6 +29,7 @@ fun MeetingCard(
     meetingName: String,
     //meetingDate: Int, // TODO add time
     meetingLocation: String,
+    isGoing: Boolean,
     chipsData: List<String>
 ) {
     Box(
@@ -52,11 +51,13 @@ fun MeetingCard(
                         style = CodeAndCoffeeTheme.typography.bodyText1,
                         color = CodeAndCoffeeTheme.colors.neutralActiveColor
                     )
-                    Text(
-                        text = "Закончилось",
-                        style = CodeAndCoffeeTheme.typography.metadata2,
-                        color = CodeAndCoffeeTheme.colors.neutralWeakColor
-                    )
+                    if (!isGoing) {
+                        Text(
+                            text = "Закончилось",
+                            style = CodeAndCoffeeTheme.typography.metadata2,
+                            color = CodeAndCoffeeTheme.colors.neutralWeakColor
+                        )
+                    }
                 }
                 Text(
                     text = "13.09.2024 - $meetingLocation",   //TODO change to epoch
@@ -75,5 +76,20 @@ fun MeetingCard(
                 }
             }
         }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun q1y() {
+    CodeCoffeeTheme {
+        MeetingCard(
+            meetingImage = R.drawable.ic_ttttt,
+            meetingName = "Android",
+            meetingLocation = "Moscow",
+            isGoing = true,
+            chipsData = listOf("junior", "android", "Python")
+        )
     }
 }
